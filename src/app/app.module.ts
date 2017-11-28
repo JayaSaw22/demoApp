@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { RoutingModule} from './routing/routing.module';
 import { GridComponent } from './grid/grid.component';
 import { DataService } from './data.service';
-
+import { HttpClientModule , HttpClient  } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { DataService } from './data.service';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   
   ],
   providers: [DataService],

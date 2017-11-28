@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/observable';
+//import { Observable } from 'rxjs/observable';
 
 @Component({
   selector: 'app-grid',
