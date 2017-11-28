@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup,FormBuilder,Validators,FormArray  } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {FormControl, FormGroup,FormBuilder,Validators,FormArray  } from '@angula
 export class LoginComponent implements OnInit {
   loginForm;
   //  loginForm: FormGroup;
-
+  constructor(private router: Router){}
   // constructor(private fb:FormBuilder){
   //   this.loginForm = fb.group({
   //     username : ["", Validators.required]
@@ -29,9 +30,10 @@ export class LoginComponent implements OnInit {
   //   password : new FormControl()
   // });
 
-  // login(){
-  //   console.log(this.loginForm.value)
-  // }
+  login(){
+    console.log(this.loginForm.value)
+    this.router.navigateByUrl('/register');
+  }
 
   // username = new FormControl();
   // password = new FormControl();
@@ -63,9 +65,9 @@ export class LoginComponent implements OnInit {
     
   }
 
-  onSubmit = function(user){
-    console.log(user);
-  }
+  // onSubmit = function(user){
+  //   console.log(user);
+  // }
 
 }
 
