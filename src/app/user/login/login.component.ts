@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup,FormBuilder,Validators,FormArray  } from '@angular/forms';
+import {FormControl, FormGroup,FormBuilder,Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm;
-  //  loginForm: FormGroup;
+   // loginForm: FormGroup;
   constructor(private router: Router){}
-  // constructor(private fb:FormBuilder){
+  // constructor(private fb:FormBuilder,private router: Router){
   //   this.loginForm = fb.group({
   //     username : ["", Validators.required]
   //   })
@@ -59,10 +59,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl(),
-      password : new FormControl()
+      username: new FormControl('', Validators.compose([
+        Validators.required,Validators.minLength(4),Validators.pattern('[\\w\\-\\s\\/)]+')])),// build validator
+      password : new FormControl('' , this.textValidators)
     });
-    
+   
+  }
+
+  //custom validator
+  textValidators(control){
+    if(control.value.length<4){
+      return {'password' : true};
+    }
   }
 
   // onSubmit = function(user){

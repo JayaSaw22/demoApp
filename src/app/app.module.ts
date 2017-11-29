@@ -8,8 +8,9 @@ import { HeaderComponent } from './header/header.component';
 // import { RegisterComponent } from './register/register.component';
 import { RoutingModule} from './routing/routing.module';
 import { GridComponent } from './grid/grid.component';
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
 import { HttpClientModule , HttpClient  } from '@angular/common/http';
+import { CategoryPipe } from './pipe/category.pipe';
 
 
 @NgModule({
@@ -18,7 +19,10 @@ import { HttpClientModule , HttpClient  } from '@angular/common/http';
     HeaderComponent,
 
    
-  GridComponent
+  GridComponent,
+
+   
+  CategoryPipe
   ],
   imports: [
     BrowserModule,

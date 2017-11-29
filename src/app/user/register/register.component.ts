@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   //   console.log(this.registerForm.value)
   // }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -30,9 +31,16 @@ export class RegisterComponent implements OnInit {
     });
 
   }
-  onSubmit = function (user) {
-    console.log(user);
+
+  register(){
+    console.log(this.registerForm.value);
+    this.router.navigateByUrl('/grid')
   }
+
+  // onSubmit = function (user) {
+  //   console.log(user);
+  // }
+
 }
 
 

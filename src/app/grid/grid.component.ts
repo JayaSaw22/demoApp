@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { HttpClient } from '@angular/common/http';
+import { FormControl,FormGroup} from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
+import { CategoryPipe } from '../pipe/category.pipe';
+
 //import { Observable } from 'rxjs/observable';
 
 @Component({
@@ -15,6 +19,9 @@ export class GridComponent implements OnInit {
   constructor(private dataService :DataService) {
     this.getUserData();
    }
+
+  //form control
+  search = new FormControl();
 
 public getUserData() {
     this.dataService.getData()
